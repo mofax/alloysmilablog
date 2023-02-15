@@ -5,16 +5,18 @@
 </script>
 
 <div id="page">
-	<div id="blogroll">
-		{#each data.articles as article}
-			<div class="article-summary">
-				<a href={`/blog/${article.id}`}><h2>{article.attributes.title}</h2></a>
+	{#if data.article}
+		<div id="blogarticle">
+			<div class="article-body">
+				<h1>{data.article.attributes.title}</h1>
 				<article>
-					{article.attributes.summary}
+					{@html data.article.html}
 				</article>
 			</div>
-		{/each}
-	</div>
+		</div>
+	{:else}
+		<div>Article not found</div>
+	{/if}
 </div>
 
 <style lang="scss">
@@ -22,10 +24,10 @@
 		display: flex;
 		background-color: #e9e9e9;
 		width: 100%;
-		height: 100vh;
+		min-height: 100vh;
 	}
 
-	#blogroll {
+	#blogarticle {
 		display: flex;
 		flex-direction: column;
 		gap: 24px;
@@ -35,6 +37,8 @@
 		margin-left: auto;
 		margin-right: auto;
 		padding-top: 48px;
+		padding-bottom: 96px;
+		white-space: pre-wrap;
 	}
 
 	.article-summary {

@@ -1,3 +1,15 @@
+<svelte:head>
+	<meta
+		name="description"
+		content="I'm Alloys, a software & cloud technology professional focused on creating digital solutions and interactive experiences. Explore my portfolio and learn more about my work!"
+	/>
+	<meta
+		name="keywords"
+		content="Alloys, Mila, software, cloud technology, digital solutions, interactive experiences, portfolio"
+	/>
+	<meta name="author" content="Alloys" />
+</svelte:head>
+
 <div class="wrapper glass">
 	<a href="/blog">READ THE BLOG</a>
 	<h1>

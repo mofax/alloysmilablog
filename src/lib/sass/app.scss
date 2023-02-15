@@ -1,2 +1,6 @@
-@import url("./reset.css");
-@import url("./typography.scss");
+@import url('./reset.css');
+@import url('./typography.scss');
+
+body {
+    font-family: 'Merriweather', serif;
+}
