@@ -8,10 +8,8 @@
 	<div id="blogroll">
 		{#each data.articles as article}
 			<div class="article-summary">
-				<a href={`/blog/${article.id}`}><h2>{article.attributes.title}</h2></a>
-				<article>
-					{article.attributes.summary}
-				</article>
+				<p>{article.date}</p>
+				<a href={`/blog/${article.id}`}>{article.title}</a>
 			</div>
 		{/each}
 	</div>
@@ -42,13 +40,11 @@
 			color: currentColor;
 			text-decoration: underline;
 			transition: all 0.5s;
+			font-weight: bold;
 
 			&:hover {
 				text-decoration: none;
 			}
-		}
-		h2 {
-			margin-bottom: 12px;
 		}
 	}
 </style>

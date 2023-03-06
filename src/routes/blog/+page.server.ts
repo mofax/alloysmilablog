@@ -1,51 +1,72 @@
 import type { PageServerLoad } from './$types';
-import { PRIVATE_STRAPI_TOKEN } from '$env/static/private';
+import { PRIVATE_NOTION_TOKEN } from '$env/static/private';
+import { Client } from "@notionhq/client";
+import { appConfig } from '$lib/config/app_config';
+import { getProperty } from '$lib/tools/objects';
+import type { POJO } from '$lib/tools/types';
+import { isArrayUnknown } from 'typechecked';
 
-interface Article {
+// Initializing a client
+const notion = new Client({
+	auth: PRIVATE_NOTION_TOKEN
+})
+
+interface ArticleSummary {
 	id: string;
-	attributes: {
-		title: string;
-		summary: string;
-		body: string;
-	};
+	title: string;
+	date: string;
 }
-type ArticleResponse = { data: Article[]; error: null } | { data: null; error: Error };
 
-let responseCache: ArticleResponse | null = null;
+async function fetchArticles(): Promise<ArticleSummary[]> {
 
-async function fetchArticles(): Promise<ArticleResponse> {
-	const token = PRIVATE_STRAPI_TOKEN;
-	const headers = {
-		Authorization: `Bearer ${token}`
-	};
+	const response = await notion.databases.query({
+		database_id: appConfig.databaseId,
+		filter: {
+			property: 'Status',
+			select: {
+				equals: 'Published'
+			}
+		},
+		sorts: [
+			{
+				property: 'Date',
+				direction: 'descending'
+			}
+		]
+	})
 
-	try {
-		const response = await fetch('https://alloysblogbackend.fly.dev/api/articles', { headers });
-		if (!response.ok) {
-			throw new Error('Network response was not ok');
+	const nodes: ArticleSummary[] = []
+	response.results.forEach(result => {
+		const properties = getProperty<POJO>(result, 'properties')
+		// extract title
+		const Name = properties['Name'] as POJO;
+		const NameId = Name['id'] as string;
+		const idContent = Name[NameId];
+		const idContentArray = isArrayUnknown(idContent) as POJO[];
+		const textNode = idContentArray.at(0);
+
+		// extract date
+		const Date = properties['Date'] as POJO
+		const DateItem = (Date['date'] as POJO)['start']
+
+		console.log(Date)
+		if (textNode) {
+			nodes.push({
+				id: result['id'],
+				title: textNode['plain_text'] as string,
+				date: DateItem as string
+			});
+		} else {
+			console.warn('Could not find text node for Name')
 		}
-		const data = await response.json();
-		return { data: data.data, error: null };
-	} catch (error) {
-		return { error: error as Error, data: null };
-	}
+	})
+
+	return nodes;
 }
 
-export const load: PageServerLoad<{ articles: Article[] }> = async () => {
-	let response: ArticleResponse;
-	if (responseCache) {
-		response = responseCache;
-	} else {
-		response = await fetchArticles();
-		responseCache = response;
-	}
-	if (response.data) {
-		return {
-			articles: response.data
-		};
-	} else {
-		return {
-			articles: []
-		};
+export const load: PageServerLoad<{ articles: ArticleSummary[] }> = async () => {
+	const articles = await fetchArticles()
+	return {
+		articles: articles as ArticleSummary[]
 	}
 };
