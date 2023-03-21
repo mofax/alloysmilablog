@@ -40,6 +40,7 @@
 		"@notionhq/client": "^2.2.3",
 		"@sveltejs/adapter-cloudflare": "^2.0.1",
 		"marked": "^4.2.12",
+		"notion-client": "^6.16.0",
 		"typechecked": "^0.0.12"
 	}
 }

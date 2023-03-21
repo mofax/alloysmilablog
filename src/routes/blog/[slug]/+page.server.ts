@@ -1,6 +1,7 @@
 import type { PageServerLoad } from './$types';
 import { PRIVATE_STRAPI_TOKEN } from '$env/static/private';
 import { marked } from 'marked';
+import {notionClient, notionClient2} from "../../../lib/tools/notion";
 
 const cache = new Map<string, Article>();
 
@@ -17,24 +18,16 @@ interface Article {
 type ArticleResponse = { data: Article; error: null } | { data: null; error: Error };
 
 async function fetchArticles(slug: string): Promise<ArticleResponse> {
-	const token = PRIVATE_STRAPI_TOKEN;
-	const headers = {
-		Authorization: `Bearer ${token}`
-	};
+	const response = await notionClient2.getPage(slug);
 
-	try {
-		const response = await fetch(`https://alloysblogbackend.fly.dev/api/articles/${slug}`, { headers });
-		if (!response.ok) {
-			throw new Error('Network response was not ok');
-		}
-		const data = await response.json();
-		const article = data.data;
-		article.html = marked.parse(article.attributes.body);
-		return { data: article, error: null };
-	} catch (error) {
-		console.error(error);
-		return { error: error as Error, data: null };
+	console.log(response);
+	const page  =  {
+		createdTime: response.created_time,
+		lastEditedTime: response.last_edited_time
 	}
+
+	console.log(page)
+	return { error: new Error("Not implementted"), data: null };
 }
 
 export const load: PageServerLoad<{ article: Article | null }> = async ({ params }) => {

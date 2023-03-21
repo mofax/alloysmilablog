@@ -1,15 +1,11 @@
 import type { PageServerLoad } from './$types';
-import { PRIVATE_NOTION_TOKEN } from '$env/static/private';
-import { Client } from "@notionhq/client";
+
 import { appConfig } from '$lib/config/app_config';
 import { getProperty } from '$lib/tools/objects';
 import type { POJO } from '$lib/tools/types';
 import { isArrayUnknown } from 'typechecked';
+import { notionClient } from "$lib/tools/notion";
 
-// Initializing a client
-const notion = new Client({
-	auth: PRIVATE_NOTION_TOKEN
-})
 
 interface ArticleSummary {
 	id: string;
@@ -18,8 +14,7 @@ interface ArticleSummary {
 }
 
 async function fetchArticles(): Promise<ArticleSummary[]> {
-
-	const response = await notion.databases.query({
+	const response = await notionClient.databases.query({
 		database_id: appConfig.databaseId,
 		filter: {
 			property: 'Status',
@@ -49,10 +44,9 @@ async function fetchArticles(): Promise<ArticleSummary[]> {
 		const Date = properties['Date'] as POJO
 		const DateItem = (Date['date'] as POJO)['start']
 
-		console.log(Date)
 		if (textNode) {
 			nodes.push({
-				id: result['id'],
+				id: String(result['id']).replace(/-/g, ''),
 				title: textNode['plain_text'] as string,
 				date: DateItem as string
 			});
@@ -64,7 +58,10 @@ async function fetchArticles(): Promise<ArticleSummary[]> {
 	return nodes;
 }
 
-export const load: PageServerLoad<{ articles: ArticleSummary[] }> = async () => {
+export const load: PageServerLoad<{ articles: ArticleSummary[] }> = async ({ setHeaders }) => {
+	setHeaders({
+		"Cache-Control": "max-age=3600"
+	})
 	const articles = await fetchArticles()
 	return {
 		articles: articles as ArticleSummary[]
