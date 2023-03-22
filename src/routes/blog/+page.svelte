@@ -4,10 +4,10 @@
 <div class="blog-roll">
 	<ul>
 		<li class="blog-roll-item">
-			<b>Sat Jan 21 2023</b>
+			<b>Wed Mar 01 2023</b>
 			<p>
-				<a href="/blog/okr-mine-field"
-					>Navigating the OKR Minefield: Common Pitfalls to Avoid for Successful Goal-Setting</a
+				<a href="/blog/plan-is-not-strategy"
+					>The Distinction Between a Plan and a Strategy: Why It Matters</a
 				>
 			</p>
 		</li>
@@ -22,10 +22,10 @@
 		</li>
 
 		<li class="blog-roll-item">
-			<b>Wed Mar 01 2023</b>
+			<b>Sat Jan 21 2023</b>
 			<p>
-				<a href="/blog/plan-is-not-strategy"
-					>The Distinction Between a Plan and a Strategy: Why It Matters</a
+				<a href="/blog/okr-mine-field"
+					>Navigating the OKR Minefield: Common Pitfalls to Avoid for Successful Goal-Setting</a
 				>
 			</p>
 		</li>

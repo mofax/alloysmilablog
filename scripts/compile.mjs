@@ -51,11 +51,14 @@ ${parse(body)}
 	// file is writen add to index
 	index.push({
 		basename,
+		date: new Date(attributes.date),
 		attributes
 	});
 }
 
 async function writeIndex() {
+	// sort index by date
+	index.sort((a, b) => b.date - a.date);
 	const indexList = index.map((item) => {
 		const link = `/blog/${item.basename}`;
 		return `

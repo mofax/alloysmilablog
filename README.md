@@ -3,6 +3,7 @@
 This script is designed to automatically generate and maintain a personal blog using SvelteKit. It reads markdown files from a content folder, extracts front-matter metadata and content, and generates corresponding SvelteKit pages with proper routing.
 
 **Features**
+
 - Automatically creates blog pages from markdown files
 - Generates an index page with a list of all blog posts
 - Extracts and utilizes front-matter metadata for each blog post
@@ -34,6 +35,7 @@ Each markdown file should include front-matter metadata at the beginning, wrappe
 title: The title of the blog post
 date: The publication date of the blog post
 ```
+
 **Project Structure**
 
 After running the script, your SvelteKit project should have the following structure:
@@ -45,12 +47,12 @@ After running the script, your SvelteKit project should have the following struc
 - src
   - lib
   - routes
-    - blog
-      - my-first-blog-post
-        - +page.svelte
-      - my-second-blog-post
-        - +page.svelte
-    - +page.svelte
+  - blog
+  - my-first-blog-post
+  - +page.svelte
+  - my-second-blog-post
+  - +page.svelte
+  - +page.svelte
 ```
 
 LICENSE: MIT
