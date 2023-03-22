@@ -1,10 +1,10 @@
 .blog-roll,
 .blog-article {
-	width: 50%;
-	max-width: 960px;
-	min-width: 450px;
+	display: block;
+	width: 768px;
 	margin: auto;
 	margin-top: 48px;
+	padding: 12px;
 }
 
 .blog-roll {
@@ -21,9 +21,24 @@
 }
 
 .blog-article {
+	padding: 12px;
 	p {
 		margin-top: 32px;
 		margin-bottom: 32px;
 		font-size: 1.6rem;
+	}
+}
+
+@media (max-width: 768px) {
+	.blog-roll,
+	.blog-article {
+		width: 100%;
+		margin-bottom: 32px;
+	}
+	.blog-roll .blog-roll-item {
+		display: flex;
+		flex-direction: column;
+		margin-top: 16px;
+		max-width: 100%;
 	}
 }

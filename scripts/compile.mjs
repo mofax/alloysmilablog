@@ -1,4 +1,3 @@
-// @ts-check
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { parse } from 'marked';
@@ -19,7 +18,9 @@ async function createDirectoryIfNotExists(directoryPath) {
 async function readFolder(directory) {
 	const files = await fs.readdir(directory);
 	const filePaths = files.map((file) => path.join(directory, file));
-	return filePaths;
+	// ignore files with .draft.md extension
+	const filteredFilePaths = filePaths.filter((file) => !file.includes('.draft.md'));
+	return filteredFilePaths;
 }
 
 async function processMarkdown(filepath) {
@@ -35,15 +36,16 @@ async function processMarkdown(filepath) {
 	const toWrite = `
 <script>
 import HeaderArea from "$lib/components/header_area.svelte";
+import ArticleArea from "$lib/components/article_area.svelte";
 let attributes = JSON.parse('${JSON.stringify(attributes)}')
 </script>
 <svelte:head>
     <title>${attributes.title}</title>
 </svelte:head>
 <HeaderArea attributes={attributes} />
-<article class="blog-article">
+<ArticleArea>
 ${parse(body)}
-</article>
+</ArticleArea>
 `;
 	await createDirectoryIfNotExists(componentDir);
 	await fs.writeFile(componentFilePath, toWrite);

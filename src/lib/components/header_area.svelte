@@ -1,5 +1,8 @@
 <script lang="ts">
-	export let attributes: { title: string; date: string } = {};
+	export let attributes: { title: string; date: string } = {
+		title: '',
+		date: ''
+	};
 
 	const title = attributes.title || '';
 
@@ -14,6 +17,12 @@
 </div>
 
 <style lang="scss">
+	.article-header {
+		width: 100%;
+		max-width: 960px;
+		margin-top: 48px;
+	}
+
 	.h {
 		display: flex;
 		flex-direction: column;

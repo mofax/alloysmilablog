@@ -1,7 +1,8 @@
 <script>
 	import HeaderArea from '$lib/components/header_area.svelte';
+	import ArticleArea from '$lib/components/article_area.svelte';
 	let attributes = JSON.parse(
-		'{"title":"The Distinction Between a Plan and a Strategy: Why It Matters","date":"2023-03-01T00:00:00.000Z","author":"Alloys Mila","categories":["Business","Strategy","Planning"],"tags":["strategic planning","business strategy","business planning","decision making","resource management","adaptability"]}'
+		'{"title":"The Distinction Between a Plan and a Strategy: Why It Matters","date":"2023-03-01T00:00:00.000Z","author":"Alloys Mila","categories":["Business","Strategy","Planning"],"tags":["plan","strategy","planning","business","decision making"]}'
 	);
 </script>
 
@@ -9,15 +10,13 @@
 	<title>The Distinction Between a Plan and a Strategy: Why It Matters</title>
 </svelte:head>
 <HeaderArea {attributes} />
-<article class="blog-article">
+<ArticleArea>
 	<p>
 		In the world of business and beyond, the terms &quot;plan&quot; and &quot;strategy&quot; are
 		often used interchangeably. However, it is crucial to understand that they are not synonymous.
 		Although related, these two concepts possess distinct characteristics and serve different
-		purposes. This blog post aims to delve into the differences between a plan and a strategy, and
-		why it is important to recognize these distinctions.
+		purposes.
 	</p>
-	<p>Understanding the Difference</p>
 	<h2 id="definition">Definition</h2>
 	<p>
 		A plan refers to a detailed and organized course of action designed to achieve a specific goal
@@ -69,17 +68,17 @@
 		Understanding the difference between a plan and a strategy is crucial for the following reasons:
 	</p>
 	<p>
-		Clear decision-making: Differentiating between a plan and a strategy helps ensure that
-		decision-making is grounded in a clear understanding of the organization&#39;s direction and
+		<strong>Clear decision-making:</strong> Differentiating between a plan and a strategy helps ensure
+		that decision-making is grounded in a clear understanding of the organization&#39;s direction and
 		objectives.
 	</p>
 	<p>
-		Better alignment of resources: Recognizing the distinction allows for the appropriate allocation
-		of resources, time, and effort to the relevant tasks, whether they be short-term actions or
-		long-term strategic initiatives.
+		<strong>Better alignment of resources:</strong> Recognizing the distinction allows for the appropriate
+		allocation of resources, time, and effort to the relevant tasks, whether they be short-term actions
+		or long-term strategic initiatives.
 	</p>
 	<p>
-		Fostering adaptability: Acknowledging the flexibility inherent in a strategy ensures
+		<strong>Fostering adaptability:</strong> Acknowledging the flexibility inherent in a strategy ensures
 		organizations are prepared to adapt and change in the face of a dynamic environment.
 	</p>
-</article>
+</ArticleArea>

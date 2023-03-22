@@ -1,5 +1,6 @@
 <script>
 	import HeaderArea from '$lib/components/header_area.svelte';
+	import ArticleArea from '$lib/components/article_area.svelte';
 	let attributes = JSON.parse(
 		'{"title":"Navigating the OKR Minefield: Common Pitfalls to Avoid for Successful Goal-Setting","date":"2023-01-21T00:00:00.000Z","author":"Alloys","category":"Business","tags":["OKRs","Goal-setting","Performance Management","Business Strategy"]}'
 	);
@@ -9,7 +10,7 @@
 	<title>Navigating the OKR Minefield: Common Pitfalls to Avoid for Successful Goal-Setting</title>
 </svelte:head>
 <HeaderArea {attributes} />
-<article class="blog-article">
+<ArticleArea>
 	<p>
 		Objectives and Key Results (OKRs) have been widely adopted across various organizations as a
 		powerful framework for goal-setting and performance management. This approach, popularized by
@@ -78,4 +79,4 @@
 		setting realistic objectives, maintaining focus, embracing regular check-ins, and fostering a
 		culture of ownership and accountability.
 	</p>
-</article>
+</ArticleArea>
