@@ -4,6 +4,15 @@
 <div class="blog-roll">
 	<ul>
 		<li class="blog-roll-item">
+			<b>Wed Mar 22 2023</b>
+			<p>
+				<a href="/blog/ten-git-commands-you-should-know"
+					>10 Git Beginner Commands You Should Know: Essential commands to get started with Git</a
+				>
+			</p>
+		</li>
+
+		<li class="blog-roll-item">
 			<b>Wed Mar 01 2023</b>
 			<p>
 				<a href="/blog/plan-is-not-strategy"

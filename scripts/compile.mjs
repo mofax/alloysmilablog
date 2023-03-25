@@ -1,7 +1,23 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { parse } from 'marked';
+import { marked } from 'marked';
 import fm from 'front-matter';
+import hljs from 'highlight.js';
+
+marked.setOptions({
+	renderer: new marked.Renderer(),
+	highlight: function (code, lang) {
+		const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+		return hljs.highlight(code, { language }).value;
+	},
+	langPrefix: 'hljs language-', // highlight.js css expects a top-level 'hljs' class.
+	pedantic: false,
+	gfm: true,
+	breaks: false,
+	sanitize: false,
+	smartypants: false,
+	xhtml: false
+});
 
 const contentFolder = path.join(process.cwd(), './content');
 const index = [];
@@ -44,7 +60,7 @@ let attributes = JSON.parse('${JSON.stringify(attributes)}')
 </svelte:head>
 <HeaderArea attributes={attributes} />
 <ArticleArea>
-${parse(body)}
+${marked.parse(body)}
 </ArticleArea>
 `;
 	await createDirectoryIfNotExists(componentDir);
