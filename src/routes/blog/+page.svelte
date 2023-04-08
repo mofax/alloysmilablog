@@ -4,6 +4,11 @@
 <div class="blog-roll">
 	<ul>
 		<li class="blog-roll-item">
+			<b>Sat Apr 08 2023</b>
+			<p><a href="/blog/five-advanced-git-commands">Five Advanced, Rarely Used Git Commands</a></p>
+		</li>
+
+		<li class="blog-roll-item">
 			<b>Wed Mar 22 2023</b>
 			<p>
 				<a href="/blog/ten-git-commands-you-should-know"

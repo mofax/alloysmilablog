@@ -12,7 +12,7 @@
 <div class="article-header">
 	<div class="h">
 		<h1>{header}</h1>
-		<span class="mod">{headerModifier}</span>
+		<span class="mod">{headerModifier || ''}</span>
 	</div>
 </div>
 
