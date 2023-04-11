@@ -63,8 +63,8 @@ let attributes = JSON.parse('${JSON.stringify(attributes)}')
 ${marked.parse(body)}
 </ArticleArea>
 `;
-	await createDirectoryIfNotExists(componentDir);
-	await fs.writeFile(componentFilePath, toWrite);
+	// await createDirectoryIfNotExists(componentDir);
+	// await fs.writeFile(componentFilePath, toWrite);
 
 	// file is writen add to index
 	index.push({
@@ -95,8 +95,8 @@ async function writeIndex() {
      <ul>${indexMarkup}</ul>
 </div>
     `;
-	const componentDir = path.join(process.cwd(), './src/routes/blog');
-	const componentPath = path.join(componentDir, '+page.svelte');
+	const componentDir = path.join(process.cwd(), './src/pages/blog');
+	const componentPath = path.join(componentDir, 'index.astro');
 
 	await createDirectoryIfNotExists(componentDir);
 	await fs.writeFile(componentPath, toWrite);

@@ -1,0 +1,16 @@
+@import './reset.scss';
+@import './typography';
+@import './blog';
+@import './dracular';
+
+html,
+body {
+	width: 100vw;
+	min-width: 100vw;
+	min-height: 100vh;
+}
+
+.astro-code {
+	border-radius: 4px;
+	padding: 8px;
+}

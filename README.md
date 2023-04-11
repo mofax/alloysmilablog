@@ -1,58 +1,47 @@
-# SvelteKit Personal Blog Generator
-
-This script is designed to automatically generate and maintain a personal blog using SvelteKit. It reads markdown files from a content folder, extracts front-matter metadata and content, and generates corresponding SvelteKit pages with proper routing.
-
-**Features**
-
-- Automatically creates blog pages from markdown files
-- Generates an index page with a list of all blog posts
-- Extracts and utilizes front-matter metadata for each blog post
-
-**Usage**
-
-- Clone this repository or copy the script into your SvelteKit project.
-- Create a `content` folder at the root of your SvelteKit project.
-- Add your markdown files with front-matter metadata to the content folder.
-- Run the script to generate the blog pages and index page.
-- run `vite build` in you sveltekit project to build the web app
-
-**Example Markdown file**
-
-```md
----
-title: My First Blog Post
-date: 2023-03-22
----
-
-Welcome to my blog! This is my first post. In this blog, I'll be sharing my thoughts on various topics.
-```
-
-**Front-Matter Metadata**
-
-Each markdown file should include front-matter metadata at the beginning, wrapped in triple-dashes. The script currently supports the following front-matter properties:
+# Astro Starter Kit: Minimal
 
 ```
-title: The title of the blog post
-date: The publication date of the blog post
+npm create astro@latest -- --template minimal
 ```
 
-**Project Structure**
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
 
-After running the script, your SvelteKit project should have the following structure:
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-```yaml
-- content
-  - my-first-blog-post.md
-  - my-second-blog-post.md
-- src
-  - lib
-  - routes
-  - blog
-  - my-first-blog-post
-  - +page.svelte
-  - my-second-blog-post
-  - +page.svelte
-  - +page.svelte
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
 ```
 
-LICENSE: MIT
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+
+Any static assets, like images, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                | Action                                           |
+| :--------------------- | :----------------------------------------------- |
+| `npm install`          | Installs dependencies                            |
+| `npm run dev`          | Starts local dev server at `localhost:3000`      |
+| `npm run build`        | Build your production site to `./dist/`          |
+| `npm run preview`      | Preview your build locally, before deploying     |
+| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
