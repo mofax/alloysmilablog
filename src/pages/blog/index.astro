@@ -1,5 +1,6 @@
 ---
 import "../../styles/app.scss"
+Astro.response.headers.set('Cache-Control', 'max-age=0, s-maxage=3600, stale-while-revalidate');
 ---
 <html lang="en">
   <head>

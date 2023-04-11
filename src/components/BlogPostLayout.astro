@@ -5,6 +5,8 @@ const { frontmatter } = Astro.props;
 const tags = frontmatter.tags || [];
 const categories = frontmatter.categories || [];
 const keywords = [...tags, ...categories].join(', ');
+
+Astro.response.headers.set('Cache-Control', 'public, max-age=3600, s-maxage=86400');
 ---
 
 <html>
