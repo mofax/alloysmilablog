@@ -3,14 +3,28 @@
 @import './blog';
 @import './dracular';
 
+:root {
+	color-scheme: light dark;
+}
+
 html,
 body {
 	width: 100vw;
 	min-width: 100vw;
 	min-height: 100vh;
+	background-color: hsl(220, 82%, 96%);
+	color:black
 }
 
 .astro-code {
 	border-radius: 4px;
 	padding: 8px;
+}
+
+@media(prefers-color-scheme: dark) {
+	html,
+body {
+	background-color: hsl(220, 50%, 10%);
+	color: hsl(0, 0%, 87%)
+}
 }
