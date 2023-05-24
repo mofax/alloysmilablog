@@ -3,8 +3,7 @@ layout: '../../../components/BlogPostLayout.astro'
 title: "Crafting the Perfect User Experience: 5 Principles of Good Web Design"
 author: "Alloys Mila"
 date: 2023-04-12
-tags:
-[ 
+tags: [ 
 web design,
 user experience,
 visual hierarchy,
