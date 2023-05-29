@@ -10,14 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^6.2.2",
-    "@astrojs/mdx": "^0.18.3",
-    "astro": "^2.2.1"
+    "@astrojs/cloudflare": "^7.7.1",
+    "@astrojs/mdx": "^1.1.5",
+    "astro": "^3.6.4"
   },
   "devDependencies": {
     "front-matter": "^4.0.2",
-    "highlight.js": "^11.7.0",
+    "highlight.js": "^11.9.0",
     "marked": "^4.3.0",
-    "sass": "^1.61.0"
+    "sass": "^1.69.5"
   }
 }

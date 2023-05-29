@@ -8,7 +8,7 @@
 }
 
 .blog-roll {
-	& > ul {
+	&>ul {
 		display: flex;
 		flex-direction: column;
 		gap: 8px;
@@ -23,19 +23,22 @@
 
 .blog-article {
 	padding: 12px;
+
 	p {
 		margin-top: 32px;
 		margin-bottom: 32px;
-		font-size: 1.65rem;
+
 	}
 }
 
 @media (max-width: 768px) {
+
 	.blog-roll,
 	.blog-article {
 		width: 100%;
 		margin-bottom: 32px;
 	}
+
 	.blog-roll .blog-roll-item {
 		display: flex;
 		flex-direction: column;

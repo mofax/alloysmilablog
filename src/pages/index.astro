@@ -32,20 +32,26 @@ Astro.response.headers.set('Cache-Control', 'public, max-age=86400, s-maxage=864
 </html>
 
 <style lang="scss">
-	h1 {
-		font-size: calc(100vw / 20);
-	}
-
-	a {
-		display: inline-block;
-		font-size: 16px;
-		color: gray;
-	}
-
 	.wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		width: 100vw;
 		height: 100vh;
 		padding: 16%;
+		gap: 24px;
+
+		h1 {
+			--font: calc(100vw / 20);
+			font-size: var(--font);
+			line-height: calc(var(--font) * 1.5);
+		}
+
+		a {
+			display: inline-block;
+			font-size: calc(100vw / 30);
+			color: gray;
+		}
 	}
 
 	.glass {
@@ -74,7 +80,7 @@ Astro.response.headers.set('Cache-Control', 'public, max-age=86400, s-maxage=864
 	@media (prefers-color-scheme: dark) {
 		.glass {
 			background-color: hsl(220, 30%, 9%);
-            color: hsl(0, 0%, 70%);
+			color: hsl(0, 0%, 70%);
 			border: none;
 		}
 		a {

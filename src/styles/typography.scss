@@ -1,31 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&display=swap');
+
 html {
 	font-size: 10px;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
-		'Helvetica Neue', sans-serif;
+	font-family: 'Merriweather', serif;
 }
 
 body {
-	font-size: 1.4rem;
-}
-
-/* For screens smaller than 576px */
-@media (max-width: 575.98px) {
-}
-
-/* For screens between 576px and 767.98px */
-@media (min-width: 576px) and (max-width: 767.98px) {
-}
-
-/* For screens between 768px and 991.98px */
-@media (min-width: 768px) and (max-width: 991.98px) {
-}
-
-/* For screens between 992px and 1199.98px */
-@media (min-width: 992px) and (max-width: 1199.98px) {
-}
-
-/* For screens larger than 1200px */
-@media (min-width: 1200px) {
+	font-size: 1.8rem;
 }
 
 /* Headings */
@@ -38,6 +19,7 @@ h6 {
 	font-weight: 700;
 	line-height: 1.2;
 	letter-spacing: -0.02rem;
+	font-weight: 700;
 }
 
 h1 {
@@ -66,9 +48,10 @@ h6 {
 
 /* Paragraphs */
 p {
-	font-weight: 400;
+	font-weight: 300;
 	line-height: 1.5;
 	letter-spacing: 0;
+	font-family: 'Merriweather', serif;
 }
 
 /* Links */
@@ -77,6 +60,7 @@ a {
 	line-height: 1.5;
 	letter-spacing: 0;
 	text-decoration: underline;
+
 	&:hover {
 		text-decoration: none;
 	}
