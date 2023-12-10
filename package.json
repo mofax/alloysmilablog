@@ -12,7 +12,8 @@
   "dependencies": {
     "@astrojs/cloudflare": "^7.7.1",
     "@astrojs/mdx": "^1.1.5",
-    "astro": "^3.6.4"
+    "astro": "^3.6.4",
+    "astro-robots-txt": "^1.0.0"
   },
   "devDependencies": {
     "front-matter": "^4.0.2",
