@@ -1,11 +1,15 @@
 import mdx from '@astrojs/mdx';
-import cloudflare from "@astrojs/cloudflare";
+import cloudflare from '@astrojs/cloudflare';
 import { defineConfig } from 'astro/config';
+import robotsTxt from 'astro-robots-txt';
+
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://alloysmi.la',
   server: {
-    port: 4080,
+    port: 4080
   },
   markdown: {
     drafts: true,
@@ -24,7 +28,7 @@ export default defineConfig({
   integrations: [mdx({
     gfm: true,
     drafts: true
-  })],
-  output: "server",
+  }), robotsTxt(), sitemap()],
+  output: 'server',
   adapter: cloudflare()
 });
